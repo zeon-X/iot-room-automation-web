@@ -1,24 +1,39 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { Route, Routes } from "react-router-dom";
+import { Drawer } from './Components/Drawer';
+import LandingPage from './Pages/LandingPage';
+import Rooms from './Pages/Rooms';
+import LivingRoom from './Pages/LivingRoom';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Routes>
+        <Route path="/" element={
+          <Drawer>
+            <LandingPage></LandingPage>
+          </Drawer>
+        } />
+        <Route path="/home" element={
+          <Drawer>
+            <LandingPage></LandingPage>
+          </Drawer>
+        } />
+        <Route path="/rooms" element={
+          <Drawer>
+            <Rooms></Rooms>
+          </Drawer>
+        } />
+        <Route path="/rooms/livingroom" element={
+          <Drawer>
+            <LivingRoom></LivingRoom>
+          </Drawer>
+        } />
+      </Routes>
+
+
+
     </div>
   );
 }
